@@ -1,9 +1,12 @@
-﻿using System;
+﻿using System
+#pragma warning disable CS1529 // Uma cláusula using deve preceder todos os outros elementos definidos no namespace, exceto as declarações de alias externas
+;
 using Microsoft.EntityFrameworkCore.Migrations;
+#pragma warning restore CS1529 // Uma cláusula using deve preceder todos os outros elementos definidos no namespace, exceto as declarações de alias externas
 
 namespace MvcMovie.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +19,8 @@ namespace MvcMovie.Migrations
                     Title = table.Column<string>(nullable: true),
                     ReleaseDate = table.Column<DateTime>(nullable: false),
                     Genre = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Rating = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
